@@ -1,0 +1,86 @@
+{
+	"info": {
+		"_postman_id": "61e80b3a-91cd-4d24-a5ce-86dd4ddb4549",
+		"name": "Spring Authz Server Requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get JWT Token from Spring Authz Server",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "client-1-secret",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "client-1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cache-Control",
+						"value": "no-cache",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "client-1",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "client-1-secret",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "FL1qz2",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:10090/oauth/login/client-app",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:10080/oauth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "10080",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

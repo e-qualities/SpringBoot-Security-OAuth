@@ -1,0 +1,38 @@
+---
+spring.application.name: Authorization-Server
+server.port: ${PORT:10080}
+
+# Specify a non-default session cookie name.
+# This avoids clashing cookie names when running two
+# Spring servers (e.g. Zuul & Authz server) on the 
+# same machine. A clash in cookie names can lead to 
+# wrongful CSRF attack detection with the following error message:
+# "Possible CSRF detected - state parameter was present but no state could be found"
+# This is described here: https://github.com/spring-projects/spring-security-oauth/issues/322
+server.servlet.session.cookie.name: OAUTHSESSION 
+
+logging.level:
+  org.springframework.security: DEBUG 
+  com.acme: DEBUG
+
+## 
+## You could also declare OAuth clients here.
+## But it is better to do that in code or use
+## persistent definitions from a database.
+## Also, this will not work for Authorization 
+## Code Grant flow as it requires a redirect URI
+## that cannot be specified in application.yml
+##
+# security:
+#  oauth2:
+#    client:
+#      client-id: first-client
+#      client-secret: noonewilleverguess
+
+# security:
+#  oauth2:
+#    authorization:
+#      jwt: 
+#        key-store: classpath:jwtKeys.jks
+#        key-store-password: password
+#        key-alias: jwtKeys
