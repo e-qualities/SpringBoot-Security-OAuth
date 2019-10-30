@@ -20,7 +20,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<spring.boot.version>2.1.4.RELEASE</spring.boot.version>
-		<nimbus.jose.jwt.version>7.1</nimbus.jose.jwt.version>
+		<nimbus.jose.jwt.version>7.9</nimbus.jose.jwt.version>
 		<nimbus.oauth2.oidc.sdk.version>6.8</nimbus.oauth2.oidc.sdk.version>
 	</properties>
 
